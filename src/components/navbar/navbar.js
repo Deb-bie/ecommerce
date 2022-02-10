@@ -2,16 +2,20 @@ import React , { useState } from 'react';
 import { MainNav, NavContainer, NavLogo, Name, Profile, ProfileIcon, BrandName, Icon, PContent, MenuBar,
     PIcon, Dropdown, PCLink, NavMenu, NavItem, NavLink, Y, NavDropdown, NavContent, NCLink, NIcon, NavContent2,
     NavContent3, NavContent4, NavContent5, Z, Z1, Z2, Z3, Z4, AnnouncementContainer, ItemsNav, ItemsContainer, Items, 
-    Item, IDropdown,ItemIcon, ItemContent, ItemLink, ItemsList } from './navbarStyles';
+    Item, IDropdown,ItemIcon, ItemContent, ItemLink, ItemsList, Logout, LButton } from './navbarStyles';
 import { Badge } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo/logo_8.svg';
 import {PersonOutlined, ShoppingCartOutlined, FavoriteBorderOutlined, MenuOutlined, CloseOutlined, KeyboardArrowDownOutlined} from '@material-ui/icons';
 import { auth} from '../../firebase/firebase'
+import { signOut } from 'firebase/auth';
+
 
 
 
 const Navbar = () => {
+
+    const navigate = useNavigate();
 
     const [click, setClick] = useState(false);
 
@@ -24,6 +28,12 @@ const Navbar = () => {
 
     const handleOpen = () => {
         setClick(!click);
+    }
+
+
+    const LogOut = async(e) => {
+        await signOut(auth);
+        navigate('/')
     }
 
 
@@ -62,34 +72,69 @@ const Navbar = () => {
                     <Profile>
                         {auth.currentUser ? (
                             <>
-                                <ProfileIcon>
-                                    <Icon to='#'>{auth.currentUser.displayName}</Icon>
-                                </ProfileIcon>
-
-                                <ProfileIcon>
-                                    <Badge badgeContent={4} color="primary">
-                                        <Icon to='/cart'><ShoppingCartOutlined /></Icon>
-                                    </Badge>
-                                </ProfileIcon>
 
 
-                                <ProfileIcon>
-                                    <Badge badgeContent={1} color="primary">
-                                        <Icon to='/favorite'><FavoriteBorderOutlined /></Icon>
-                                    </Badge>
-                                </ProfileIcon>
+                            {auth.currentUser.email === "admin@admin.com" ? (
+                                <>
+                                    <ProfileIcon>
+                                        <PIcon to='#'>{auth.currentUser.displayName}</PIcon>
+                                    </ProfileIcon>
+
+                                    <ProfileIcon>
+                                        <PIcon to='#'>Dashboard</PIcon>
+                                    </ProfileIcon>
+
+
+                                    <ProfileIcon>
+                                        <Logout>
+                                            <LButton onClick={LogOut}>LOG OUT</LButton>
+                                        </Logout>
+                                    </ProfileIcon>
+                                </>
+                            ) : (
+                                <>
+                                    <ProfileIcon>
+                                        <Dropdown>
+                                            <PIcon to='#'>{auth.currentUser.displayName}</PIcon>
+
+                                        </Dropdown>
+
+                                        <PContent>
+                                            <PCLink to='#'>Profile</PCLink>
+                                            <PCLink to='#' onClick={LogOut}>Log out</PCLink>
+                                        </PContent>
+                                    </ProfileIcon>
+
+                                    <ProfileIcon>
+                                        <Badge badgeContent={4} color="primary">
+                                            <Icon to='/cart'><ShoppingCartOutlined /></Icon>
+                                        </Badge>
+                                    </ProfileIcon>
+
+                                    <ProfileIcon>
+                                        <Badge badgeContent={1} color="primary">
+                                            <Icon to='/favorite'><FavoriteBorderOutlined /></Icon>
+                                        </Badge>
+                                    </ProfileIcon>
+                                </>
+                            )}
+
+
+                                
                             </>
                         ) : (
                             <>
                                 <ProfileIcon>
-                                    <Dropdown>
-                                        <PIcon to='#'><PersonOutlined /></PIcon>
 
-                                        <PContent>
-                                            <PCLink to='#'>Login</PCLink>
-                                            <PCLink to='#'>Sign Up</PCLink>
-                                        </PContent>
+                                    <Dropdown>
+                                            <PIcon to='#'><PersonOutlined /></PIcon>
+
                                     </Dropdown>
+
+                                    <PContent>
+                                        <PCLink to='/signin'>Sign In</PCLink>
+                                        <PCLink to='/signup'>Sign Up</PCLink>
+                                    </PContent>
                                 </ProfileIcon>
 
                                 <ProfileIcon>

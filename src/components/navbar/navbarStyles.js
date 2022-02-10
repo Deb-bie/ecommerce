@@ -13,6 +13,11 @@ export const AnnouncementContainer = styled.div`
     font-weight: 500;
     transition: 0.5s ease-in-out ;
     position: sticky;
+
+    @media (max-width: 648px) {
+        position: relative;
+        max-width: 100%;
+    }
 `;
 
 
@@ -94,10 +99,9 @@ export const Icon = styled(Link)`
 `;
 
 export const Dropdown = styled.div`
-    float: left;
-    overflow: hidden;
-`;
 
+
+`;
 
 export const PIcon = styled(Link)`
     color: #000;
@@ -107,23 +111,44 @@ export const PIcon = styled(Link)`
     text-decoration: none;
     background-color: inherit;
     font-family: inherit;
+
+
 `;
 
 
 export const PContent = styled.div`
     display: none;
+    min-width: 160px;
     position: absolute;
     background-color: #0b4a54;
-    min-width: 160px;
-    top: 80px;
+    // top: 80px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     color: #fff;
+    // margin-left: 450px;
 
 
-    ${Dropdown}:hover & {
+    ${Dropdown}:hover + &{
         display: block;
-    }
+        right: 14px;
+        // top: 100px;
+        // position: relative;
+        z-index: 100;
+        
+    };
+
+
+    &:hover{
+        display: block;
+        right: 14px;
+        // position: relative;
+        z-index: 100;
+        
+    };
+
+    // ${Dropdown}:active  & {
+    //     display: block;
+    // }
 
 `;
 
@@ -141,6 +166,28 @@ export const PCLink = styled(Link)`
         color: #000;
     }
 `;
+
+
+export const Logout = styled.div`
+    text-align: center;
+    cursor: pointer;
+`;
+
+
+
+export const LButton = styled.button`
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    background-color: #7e2e2e;
+    outline: none;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+
+`;
+
 
 
 export const MenuBar = styled.div`
@@ -369,14 +416,9 @@ export const ItemsNav = styled.div`
     background-color: rgb(108 56 14);
     z-index: 10;
 
-
-
     @media (max-width: 648px) {
         display: none;
     }
-
-
-
 `;
 
 
