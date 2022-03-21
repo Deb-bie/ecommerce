@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React from 'react';
 import { db, auth } from '../../firebase/firebase';
 import { collection, updateDoc, addDoc, doc } from "firebase/firestore";
 import { CartB, CartButton, Image, Price, Productss, ProductImage, Title, PriceFav} from './productsStyles';
@@ -36,7 +36,35 @@ const IndividualProduct = ({productsss}) => {
         else{
           navigate('/signup')
         }
-      }
+    }
+
+
+
+    const handleFavorites = async() => {
+        if (auth.currentUser !== null){
+
+            const fav = await addDoc(collection(db, 'users', `${auth.currentUser.uid}`, 'favorites'),{
+                title: productsss.title,
+                description: productsss.description,
+                price: productsss.price,
+                stock: productsss.stock,
+                image: productsss.image,
+                qty: productsss.qty,
+                totalPrice: productsss.totalPrice,
+            })
+
+            await updateDoc(doc(db, 'users', `${auth.currentUser.uid}`, 'favorites', `${fav.id}`), {
+                id: fav.id
+            })
+
+          navigate('/favorite');
+
+          return fav;
+        }
+        else{
+          navigate('/signup')
+        }
+    }
 
 
     return (
@@ -49,7 +77,7 @@ const IndividualProduct = ({productsss}) => {
             <Title>{productsss.title}</Title>
             <PriceFav>
                 <Price big><span>GH&#8373;</span>{productsss.price}</Price>
-                <FavoriteBorderOutlined style={{color: "pink"}} />
+                <FavoriteBorderOutlined onClick={handleFavorites} />
             </PriceFav>
 
             <CartButton onClick={handleAddToCart}>

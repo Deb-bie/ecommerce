@@ -22,6 +22,12 @@ const Products = () => {
     }, []);
 
 
+    
+
+
+
+
+
     return (
         <div>
             {products.length > 0 && (

@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-
-
 export const SignUp = styled.div`
     min-height: 100%;
     width: 100%;
@@ -79,7 +77,7 @@ export const Button = styled.button`
     width: 270px;
     height: 40px;
     font-size: 18px;
-    // background-color: steelblue;
+    background-color: steelblue;
     outline: none;
     border: transparent;
     border-radius: 5px;

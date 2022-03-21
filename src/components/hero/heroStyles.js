@@ -5,7 +5,7 @@ export const Container = styled.div`
     display: flex;
     position: relative;
     overflow: hidden;
-    z-index: 1;
+    // z-index: 9;
 `;
 
 

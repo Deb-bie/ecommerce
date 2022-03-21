@@ -414,7 +414,7 @@ export const ItemsNav = styled.div`
     align-items: center;
     // background-color: rgba(172, 117, 0, 1);
     background-color: rgb(108 56 14);
-    z-index: 10;
+    z-index: 1;
 
     @media (max-width: 648px) {
         display: none;
@@ -433,17 +433,11 @@ export const ItemsContainer = styled.div`
     max-width: 100%;
 `;
 
-
-
-
 export const Items = styled.ul`
     display: flex;
     list-style: none;
     text-align: center;
 `;
-
-
-
 
 export const ItemsList = styled.li`
     display: flex;
@@ -451,9 +445,6 @@ export const ItemsList = styled.li`
     text-align: center;
     justify-content: center;
 `;
-
-
-
 
 export const Item = styled(Link)`
     color: #fff;
@@ -463,10 +454,11 @@ export const Item = styled(Link)`
     padding: 0 1.7rem;
     height: 100%;
     cursor: pointer;
+
+    @media (max-width: 752px) {
+        padding: 0 1rem;
+    }
 `;
-
-
-
 
 export const IDropdown = styled.div`
     float: none;
@@ -486,6 +478,10 @@ export const ItemIcon = styled(Link)`
     background-color: inherit;
     font-family: inherit;
     padding: 0 1.7rem;
+
+    @media (max-width: 752px) {
+        padding: 0 1rem;
+    }
 `;
 
 
@@ -493,19 +489,22 @@ export const ItemIcon = styled(Link)`
 
 export const ItemContent = styled.div`
     display: none;
-    position: absolute;
     min-width: 160px;
-    top: 150px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1000;
+    position: absolute;
     // background-color: #0b4a54;
-    background-color: #fff;
-    margin-left: 30px;
+    background-color: rgb(108 56 14);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    color: #fff;
+    // margin-left: 30px;
 
 
     ${IDropdown}:hover & {
         display: block;
+        z-index: 100;
+        margin-left: 30px;
     }
+
 `;
 
 
@@ -525,22 +524,5 @@ export const ItemLink = styled(Link)`
         color: #000;
     }
 `;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

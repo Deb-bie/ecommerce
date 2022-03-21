@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React , { useState, useEffect } from 'react';
 import { MainNav, NavContainer, NavLogo, Name, Profile, ProfileIcon, BrandName, Icon, PContent, MenuBar,
     PIcon, Dropdown, PCLink, NavMenu, NavItem, NavLink, Y, NavDropdown, NavContent, NCLink, NIcon, NavContent2,
     NavContent3, NavContent4, NavContent5, Z, Z1, Z2, Z3, Z4, AnnouncementContainer, ItemsNav, ItemsContainer, Items, 
@@ -7,13 +7,14 @@ import { Badge } from '@material-ui/core';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo/logo_8.svg';
 import {PersonOutlined, ShoppingCartOutlined, FavoriteBorderOutlined, MenuOutlined, CloseOutlined, KeyboardArrowDownOutlined} from '@material-ui/icons';
-import { auth} from '../../firebase/firebase'
+import { auth,db} from '../../firebase/firebase';
+import { collection, onSnapshot} from "firebase/firestore";
 import { signOut } from 'firebase/auth';
 
 
 
 
-const Navbar = () => {
+const Navbar = ({ totalQty, totalFav }) => {
 
     const navigate = useNavigate();
 
@@ -35,11 +36,6 @@ const Navbar = () => {
         await signOut(auth);
         navigate('/')
     }
-
-
-    
-
-
 
 
     return (
@@ -81,7 +77,7 @@ const Navbar = () => {
                                     </ProfileIcon>
 
                                     <ProfileIcon>
-                                        <PIcon to='#'>Dashboard</PIcon>
+                                        <PIcon to='/productlist'>Dashboard</PIcon>
                                     </ProfileIcon>
 
 
@@ -106,13 +102,13 @@ const Navbar = () => {
                                     </ProfileIcon>
 
                                     <ProfileIcon>
-                                        <Badge badgeContent={4} color="primary">
+                                        <Badge badgeContent={totalQty} color="primary">
                                             <Icon to='/cart'><ShoppingCartOutlined /></Icon>
                                         </Badge>
                                     </ProfileIcon>
 
                                     <ProfileIcon>
-                                        <Badge badgeContent={1} color="primary">
+                                        <Badge badgeContent={totalFav} color="primary">
                                             <Icon to='/favorite'><FavoriteBorderOutlined /></Icon>
                                         </Badge>
                                     </ProfileIcon>
@@ -138,14 +134,14 @@ const Navbar = () => {
                                 </ProfileIcon>
 
                                 <ProfileIcon>
-                                    <Badge badgeContent={1} color="primary">
+                                    <Badge badgeContent={totalQty} color="primary">
                                         <Icon to='/cart'><ShoppingCartOutlined /></Icon>
                                     </Badge>
                                 </ProfileIcon>
 
 
                                 <ProfileIcon>
-                                    <Badge badgeContent={1} color="primary">
+                                    <Badge badgeContent={totalFav} color="primary">
                                         <Icon to='/favorite'><FavoriteBorderOutlined /></Icon>
                                     </Badge>
                                 </ProfileIcon>
@@ -261,7 +257,7 @@ const Navbar = () => {
                 <ItemsContainer>
                     <Items>
                         <ItemsList>
-                            <Item to='#'>Home</Item>
+                            <Item to='/'>Home</Item>
                         </ItemsList>
 
                         <ItemsList>
