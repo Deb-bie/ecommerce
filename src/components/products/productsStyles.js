@@ -4,9 +4,35 @@ import {Link} from 'react-router-dom';
 export const ContainerFluid = styled.div`
     width: 100%;
     position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 `;
 
-export const ProductTitle = styled.h1``;
+export const ProductTitle = styled.div`
+    display: flex;
+    font-size: 30px;
+    font-weight: 700;
+
+    @media (max-width: 648px) {
+        font-size: 24px;
+    }
+`;
+
+export const Underline = styled.div`
+    width: 12%;
+    border-bottom: 3px solid #000;
+    text-align: center;
+    // position: relative;
+
+    @media (max-width: 648px) {
+        width: 40%;
+    }
+`;
 
 export const ProductsBox = styled.div`
     width: 100%;
@@ -36,8 +62,8 @@ export const Productss = styled.div`
     cursor: pointer;
 
     &:hover{
-        box-shadow: 3px 6px 40px #000;
-        transition: all 1.5s ease-in;
+        box-shadow: 0px 0px 13px #c3c6c7;
+        transition: all 0.5s ease-in;
     }
 `;
 
@@ -55,6 +81,8 @@ export const Title = styled.div`
     margin-bottom: 5px; 
     font-size: 16px;
 `;
+
+
 
 export const PriceFav = styled.div`
     display: flex;

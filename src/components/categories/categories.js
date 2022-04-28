@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CategoriesContainer, Header, Wrapper, Image, Info, Title, Button, Container, ButtonLink, X } from './categoriesStyles'
+import { CategoriesContainer, Header, Wrapper, Image, Title, Container, X, Underline } from './categoriesStyles'
 import Shoes from '../../assets/slide/brown_shoes.jpg';
 
 
@@ -8,55 +8,37 @@ import Shoes from '../../assets/slide/brown_shoes.jpg';
 const Categories = () => {
     return (
         <CategoriesContainer>
-                <Header>Categories</Header>
+            <Header>Categories</Header>
 
-                <Wrapper>
+            <Underline></Underline>
+
+            <Wrapper>
                 <Container>
                     <Image src={Shoes} />
-                    <X>
+                    <X to='/tops'>
                         <Title>Tops</Title>
                     </X>
-                    <Info>
-                        <Button>
-                            <ButtonLink to='#'>Shop</ButtonLink>
-                        </Button>
-                    </Info>
                 </Container>
 
                 <Container>
                     <Image src={Shoes} />
-                    <X>
+                    <X to='/dresses'>
                         <Title>Dresses</Title>
                     </X>
-                    <Info>
-                        <Button>
-                            <ButtonLink to='#'>Shop</ButtonLink>
-                        </Button>
-                    </Info>
                 </Container>
 
                 <Container>
                     <Image src={Shoes} />
-                    <X>
+                    <X to='/bags'>
                         <Title>Bags</Title>
                     </X>
-                    <Info>
-                        <Button>
-                            <ButtonLink to='#'>Shop</ButtonLink>
-                        </Button>
-                    </Info>
                 </Container>
 
                 <Container>
                     <Image src={Shoes} />
-                    <X>
+                    <X to='/shoes'>
                         <Title>Shoes</Title>
                     </X>
-                    <Info>
-                        <Button>
-                            <ButtonLink to='#'>Shop</ButtonLink>
-                        </Button>
-                    </Info>
                 </Container>
 
                 </Wrapper>

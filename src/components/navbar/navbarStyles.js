@@ -304,19 +304,19 @@ export const Z4 = styled.div`
 
 
 export const NavContent = styled.div`
-    display: none;
-    position: relative;
-    background-color: #0b4a54;
-    min-width: 100%;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 5;
-    color: #fff;
-    border-bottom: 2px solid #000;
+    // display: none;
+    // position: relative;
+    // background-color: #0b4a54;
+    // min-width: 100%;
+    // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    // z-index: 5;
+    // color: #fff;
+    // border-bottom: 2px solid #000;
 
 
-    ${NavDropdown}:hover & {
-        display: block;
-    }
+    // ${NavDropdown}:hover & {
+    //     display: block;
+    // }
 `;
 
 

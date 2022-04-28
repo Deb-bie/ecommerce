@@ -6,10 +6,6 @@ import Bag from '../../assets/slide/pink_bag.jpg'
 import { Arrow, Button, Container, Desc, Image, ImgContainer, InfoContainer, Slide, Title, Wrapper } from './heroStyles';
 
 
-
-
-
-
 const Hero = () => {
 
     const [slideIndex, setSlideIndex] = useState(0)
@@ -24,7 +20,6 @@ const Hero = () => {
             setSlideIndex(slideIndex < 2 ? slideIndex+1 : 0)
         }
     }
-
 
 
     return (
@@ -44,16 +39,13 @@ const Hero = () => {
 
                     <InfoContainer white>
                             <Title>SUMMER SALE</Title>
-
                             <Desc>
                                 DON'T COMPROMISE ON STYLE! 
                                 <br /> 
-                                GET FLAT 30% OFF FOR NEW ARRIVALS.</Desc>
-
+                                GET FLAT 30% OFF FOR NEW ARRIVALS.
+                            </Desc>
                             <Button>SHOP NOW</Button>
-    
                     </InfoContainer>
-
                 </Slide>
                 
 

@@ -10,6 +10,7 @@ import {PersonOutlined, ShoppingCartOutlined, FavoriteBorderOutlined, MenuOutlin
 import { auth,db} from '../../firebase/firebase';
 import { collection, onSnapshot} from "firebase/firestore";
 import { signOut } from 'firebase/auth';
+import Signin from '../../pages/signin/signin';
 
 
 
@@ -23,7 +24,6 @@ const Navbar = ({ totalQty, totalFav }) => {
     const handleClick = () => {
         setClick(!click);
     }
-
 
     const [open, setOpen] = useState(false);
 
@@ -103,7 +103,17 @@ const Navbar = ({ totalQty, totalFav }) => {
 
                                     <ProfileIcon>
                                         <Badge badgeContent={totalQty} color="primary">
-                                            <Icon to='/cart'><ShoppingCartOutlined /></Icon>
+                                        {auth.currentUser ? (
+                                            <>
+                                                <Icon to='/cart'><ShoppingCartOutlined /></Icon>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Icon to='/signin'><ShoppingCartOutlined /></Icon>
+                                            </>
+                                        ) }
+
+                                            
                                         </Badge>
                                     </ProfileIcon>
 
@@ -135,14 +145,30 @@ const Navbar = ({ totalQty, totalFav }) => {
 
                                 <ProfileIcon>
                                     <Badge badgeContent={totalQty} color="primary">
-                                        <Icon to='/cart'><ShoppingCartOutlined /></Icon>
+                                        {auth.currentUser ? (
+                                            <>
+                                                <Icon to='/cart'><ShoppingCartOutlined /></Icon>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Icon to='/signin'><ShoppingCartOutlined /></Icon>
+                                            </>
+                                        ) }
                                     </Badge>
                                 </ProfileIcon>
 
 
                                 <ProfileIcon>
                                     <Badge badgeContent={totalFav} color="primary">
-                                        <Icon to='/favorite'><FavoriteBorderOutlined /></Icon>
+                                        {auth.currentUser ? (
+                                            <>
+                                                <Icon to='/favorite'><FavoriteBorderOutlined /></Icon>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Icon to='/signin'><FavoriteBorderOutlined /></Icon>
+                                            </>
+                                        ) }
                                     </Badge>
                                 </ProfileIcon>
                             </>
@@ -262,7 +288,7 @@ const Navbar = ({ totalQty, totalFav }) => {
 
                         <ItemsList>
                             <IDropdown>
-                                <ItemIcon to="#">
+                                <ItemIcon to="tops">
                                     Tops
                                     <KeyboardArrowDownOutlined />
                                 </ItemIcon>
@@ -279,7 +305,7 @@ const Navbar = ({ totalQty, totalFav }) => {
 
                         <ItemsList>
                             <IDropdown>
-                                <ItemIcon to="#">
+                                <ItemIcon to="dresses">
                                     Dresses
                                     <KeyboardArrowDownOutlined />
                                 </ItemIcon>
@@ -296,7 +322,7 @@ const Navbar = ({ totalQty, totalFav }) => {
 
                         <ItemsList>
                             <IDropdown>
-                                <ItemIcon to="#">
+                                <ItemIcon to="shoes">
                                     Shoes
                                     <KeyboardArrowDownOutlined />
                                 </ItemIcon>
@@ -313,7 +339,7 @@ const Navbar = ({ totalQty, totalFav }) => {
 
                         <ItemsList>
                             <IDropdown>
-                                <ItemIcon to="#">
+                                <ItemIcon to="bags">
                                     Bags
                                     <KeyboardArrowDownOutlined />
                                 </ItemIcon>
@@ -330,7 +356,7 @@ const Navbar = ({ totalQty, totalFav }) => {
 
                         <ItemsList>
                             <IDropdown>
-                                <ItemIcon to="#">
+                                <ItemIcon to="accessories">
                                     Accessories
                                     <KeyboardArrowDownOutlined />
                                 </ItemIcon>
