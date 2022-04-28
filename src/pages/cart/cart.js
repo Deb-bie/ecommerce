@@ -6,6 +6,7 @@ import { Container, ContainerFluid,CartB, CartButton, ProductsBox, ProductTitle,
 import {Quantity, Sum, Delete, DeleteButton, QuantityBox, Minus, Adds, TitlePrice} from './cartStyles';
 import {Remove, Add} from '@material-ui/icons';
 import IndividualCart from './individualCart'
+import Signin from '../signin/signin';
 
 
 
@@ -50,9 +51,7 @@ const Cart = () => {
 
     return (
         <>
-
             <Navbar totalQty={totalQty} />
-
             {cart.length > 0 && (
                 <ContainerFluid>
                     <ProductTitle>My Cart</ProductTitle>
@@ -62,20 +61,13 @@ const Cart = () => {
                         ))}
                     </ProductsBox>
 
-
                     <div>
                         Quantity: {totalQty}
                         <br/>
-                      total Price: {totalP}
-                        
+                        total Price: {totalP}  
                     </div>
-
-
-                </ContainerFluid>
-
-                
+                </ContainerFluid>   
             )}
-
 
             {cart.length < 1 && (
                 <ContainerFluid>
@@ -83,8 +75,8 @@ const Cart = () => {
                     <Container>Your Cart is empty</Container>
                 </ContainerFluid>
             )}
-        
         </>
+
     )
 }
 

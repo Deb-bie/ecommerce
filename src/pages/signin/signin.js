@@ -100,23 +100,12 @@ const Signin = () => {
                             <SignUpButton>
                                 <Button>
                                     {loading ? (
-                                        <Loading>Signing Up</Loading>
+                                        <Loading>Signing In</Loading>
                                     ) : (
-                                        <Loaded> Sign Up</Loaded>
+                                        <Loaded> Sign In</Loaded>
                                     )}
                                 </Button>
                             </SignUpButton>
-
-
-                            {/* <SignUpButton>
-                                
-                                {loading ? (
-                                    <Loading>Signing Up</Loading>
-                                ) : (
-                                    <Loaded> Sign Up</Loaded>
-                                )}
-                                
-                            </SignUpButton> */}
 
                             <br />
                         </form>

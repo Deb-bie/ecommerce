@@ -98,7 +98,7 @@ export const Loading = styled.button`
     width: 270px;
     height: 40px;
     font-size: 18px;
-    background-color: steelblue; 
+    background-color: #f4f4f4bd; 
     outline: none;
     border: transparent;
     border-radius: 5px;
