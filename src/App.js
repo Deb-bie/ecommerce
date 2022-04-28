@@ -8,6 +8,11 @@ import ProductList from './admin/productList/productList.js';
 import AddProduct from './admin/addProduct/addProduct.js'
 import Cart from './pages/cart/cart';
 import Favorites from './pages/favorites/favorites';
+import Bags from './pages/category/bags/bags';
+import Shoes from './pages/category/shoes/shoes';
+import Dresses from './pages/category/dresses/dresses';
+import Tops from './pages/category/tops/tops';
+import Pagenotfound from './pages/pagenotfound/pagenotfound';
 
 
 
@@ -26,9 +31,16 @@ function App() {
           <Route path="/addproduct" element={<AddProduct />} />
           <Route path="/cart" element={<Cart />} /> 
           <Route path="/favorite" element={<Favorites />} /> 
+          <Route path="/bags" element={<Bags />} />
+          <Route path="/shoes" element={<Shoes />} />
+          <Route path="/shoes" element={<Shoes />} />
+          <Route path="/dresses" element={<Dresses />} />
+          <Route path="/tops" element={<Tops />} />
 
 
+          
 
+          <Route path="*" element={<Pagenotfound />} />
           {/* <Route path='/' element={<FlavorForm />} /> */}
         </Routes>
       </Router>
