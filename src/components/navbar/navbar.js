@@ -36,6 +36,7 @@ const Navbar = ({ totalQty, totalFav }) => {
         await signOut(auth);
         navigate('/')
     }
+    
 
 
     return (
