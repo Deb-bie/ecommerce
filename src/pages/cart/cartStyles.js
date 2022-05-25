@@ -66,3 +66,63 @@ text-decoration: none;
     color: #000;
 `;
 
+
+export const SummaryBox = styled.div`
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    
+`;
+
+
+export const Summary = styled.div`
+    width: 220px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    margin-right: 24px;
+    transition: all 0.3s ease-in-out;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    // box-shadow: 0px 0px 13px #c3c6c7;
+    font-size: 16px;
+    background-color: rgb(0 0 0 / 6%); 
+        
+`;
+
+
+export const Stitle = styled.p`
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    text-decoration: underline;
+`;
+
+export const TQuantity = styled.span`
+    font-weight: bold;
+
+`;
+
+
+export const TPrice = styled.span`
+    font-weight: bold;
+`;
+
+
+export const TQ = styled.p`
+`;
+
+
+export const TP = styled.p`
+`;
+
+
+
+
