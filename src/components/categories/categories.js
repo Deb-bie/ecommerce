@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { CategoriesContainer, Header, Wrapper, Image, Title, Container, X, Underline } from './categoriesStyles'
-import Shoes from '../../assets/slide/brown_shoes.jpg';
+import Shoes from '../../assets/slide/slide1.png';
 
 
 

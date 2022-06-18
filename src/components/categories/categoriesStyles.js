@@ -2,8 +2,9 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 export const CategoriesContainer = styled.div`
-    position: relative;
-    height: 100%;
+    // position: relative;
+    // height: 100%;
+    height: auto;
     display: flex;
     box-shadow: 0px 0px 13px #c3c6c7;
     flex-direction: column;

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons';
-import Shoes from '../../assets/slide/brown_shoes.jpg';
-import Girl from '../../assets/slide/happy_girl.jpg';
-import Bag from '../../assets/slide/pink_bag.jpg'
+import Shoes from '../../assets/slide/slide1.png';
+import Girl from '../../assets/slide/slide2.png';
+import Bag from '../../assets/slide/slide3.png'
 import { Arrow, Button, Container, Desc, Image, ImgContainer, InfoContainer, Slide, Title, Wrapper } from './heroStyles';
 
 
@@ -32,53 +32,54 @@ const Hero = () => {
 
             <Wrapper slideIndex={slideIndex}>
                 <Slide>
+                    <InfoContainer>
+                        <Title white>SUMMER SALE</Title>
+                        <Desc>
+                            {/* <p>DON'T COMPROMISE ON STYLE!</p> 
+                            
+                            <p>GET FLAT 30% OFF FOR NEW ARRIVALS.</p> */}
+
+                            DON'T COMPROMISE ON STYLE!
+                            <br />
+                            GET FLAT 30% OFF FOR NEW ARRIVALS.
+                        </Desc>
+                        <Button>SHOP NOW</Button>
+                    </InfoContainer>
+
                     <ImgContainer>
                         <Image src={Shoes} />
                     </ImgContainer>
-
-
-                    <InfoContainer white>
-                            <Title>SUMMER SALE</Title>
-                            <Desc>
-                                DON'T COMPROMISE ON STYLE! 
-                                <br /> 
-                                GET FLAT 30% OFF FOR NEW ARRIVALS.
-                            </Desc>
-                            <Button>SHOP NOW</Button>
-                    </InfoContainer>
+                    
                 </Slide>
                 
 
 
                 <Slide>
+
+                    <InfoContainer>
+                        <Title>SUMMER SALE</Title>
+
+                        <Desc>
+                            DON'T COMPROMISE ON STYLE! 
+                            <br /> 
+                            GET FLAT 30% OFF FOR NEW ARRIVALS.</Desc>
+
+                        <Button>SHOP NOW</Button>
+
+                    </InfoContainer>
+
+                    
                     <ImgContainer>
                         <Image src={Bag} />
                     </ImgContainer>
-
-
-                    <InfoContainer white>
-                            <Title>SUMMER SALE</Title>
-
-                            <Desc>
-                                DON'T COMPROMISE ON STYLE! 
-                                <br /> 
-                                GET FLAT 30% OFF FOR NEW ARRIVALS.</Desc>
-
-                            <Button>SHOP NOW</Button>
-    
-                    </InfoContainer>
 
                 </Slide>
 
 
                 <Slide>
-                    <ImgContainer>
-                        <Image src={Girl} />
-                    </ImgContainer>
-
 
                     <InfoContainer>
-                            <Title>SUMMER SALE</Title>
+                            <Title white>SUMMER SALE</Title>
 
                             <Desc>
                                 DON'T COMPROMISE ON STYLE! 
@@ -88,6 +89,10 @@ const Hero = () => {
                             <Button>SHOP NOW</Button>
     
                     </InfoContainer>
+
+                    <ImgContainer>
+                        <Image src={Girl} />
+                    </ImgContainer>
 
                 </Slide>
 
